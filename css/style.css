@@ -1,0 +1,112 @@
+/* Generell CSS (för både desktop och mobil)*/
+
+body {
+    color:white;
+    font-family: Arial, Helvetica, sans-serif;
+    margin:0;
+}
+
+header,nav,aside,main,footer {
+    padding:10px;
+    box-sizing: border-box;
+}
+
+header {
+    grid-area: hd;
+    background-color:grey;
+}
+nav {
+    grid-area: nv;
+    background-color:lightgray;
+}
+main {
+    grid-area: mn;
+    background-color:darkgray;
+}
+footer{
+    grid-area: ft;
+    background-color: black;
+}
+
+#hamburgermeny img, #hamburgerkryss img {
+    width:30px;
+    margin-right:100px;
+    
+}
+
+
+
+
+
+
+/* Ovan: generell CSS. UNDER: specifikt mobil */
+
+@media all and (max-width:767px)  {
+    #wrapper {
+        display: grid;
+        width:100%;
+        background-color: tomato;
+        margin:auto;
+        grid-template-columns: 1fr;
+        grid-template-rows: 200px 200px 200px;
+        grid-template-areas: 
+        "hd "
+        "mn" 
+        "ft";
+        grid-gap: 10px;
+        padding:10px;
+        box-sizing:border-box;
+    
+    }
+
+    aside {
+        display:flex;
+        flex-direction:column;
+    }
+
+    .mobilnav {
+        position:absolute;
+        width:200px;
+        background:pink;
+        height:200px;
+        left:-200px;
+        transition:2s all ease;
+    }
+
+    .open {
+        left:0px;
+        z-index:100;
+    }
+
+    nav{
+        display:none;
+    }
+    
+}
+
+/* UNDER: DESKTOP */
+@media all and (min-width:768px)  {
+#wrapper {
+    display: grid;
+    width:100%;
+    background-color: grey;
+    margin:auto;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 200px 100px 200px 200px;
+    grid-template-areas: 
+    "hd hd hd hd"
+    "nv nv nv nv"
+    "mn mn mn mn"
+    "ft ft ft ft";
+    grid-gap: 10px;
+    padding:10px;
+    box-sizing:border-box;
+}
+
+
+
+aside {
+    display:none;
+}
+
+}
